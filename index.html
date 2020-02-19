@@ -30,7 +30,7 @@
                 <h2>a better way to camp</h2>
                 </div>
                 <div class="col-md-4 col-xl-2 col-xs-12 mt-4">
-                    <a data-toggle="modal" data-target="#reserveModal" class="btn btn-lg btn-info" title="Or call us at 1-206-555-1234">Reserve Campsite</a>      
+                    <a data-toggle="modal" data-target="#reserveModal" class="btn btn-lg btn-info">Reserve Campsite</a>      
                 </div>
             </div>
         </div>
@@ -78,9 +78,9 @@
                     <div class="col form-group row">
                       <label class="col-sm-6 col-form-label col-xs">Campsite Type</label>
                       <div class="col col-xs btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-success active">
+                        <label class="btn btn-success active" data-siteType="tent">
                           <input type="radio" name="siteType" id="siteTent" value="tent" autocomplete="off" checked/>Tent</label>
-                        <label class="btn btn-primary">
+                        <label class="btn btn-primary" data-siteType="RV">
                           <input type="radio" name="siteType" id="siteRV" value="RV" autocomplete="off"/>RV</label>
                       </div>
                     </div>
@@ -199,6 +199,14 @@
                     <span class="carousel-control-next-icon"></span>
                     <span class="sr-only">Next</span>
                 </a>
+                <div class="btn-group" id="carouselButton">
+                    <button class="btn btn-danger btn-sm" id="carouselPause">
+                        <i class="fa fa-pause"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm" id="carouselPlay">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
             </div>
         </div>        
     </div>  
@@ -283,6 +291,18 @@
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script>
+    $(function() {
+        $(".carousel").carousel( { interval: 2000 } );
+        $("#carouselPause").click(function(){
+            $(".carousel").carousel("pause");
+        });
+        $("#carouselPlay").click(function(){
+            $(".carousel").carousel("cycle");
+        });
+    });
+</script>
 
 </body>
 
